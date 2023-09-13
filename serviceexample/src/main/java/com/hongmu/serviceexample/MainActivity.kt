@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.os.IBinder
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.hongmu.serviceexample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -44,6 +45,14 @@ class MainActivity : AppCompatActivity() {
         binding.btnBind.setOnClickListener { bindService() }
         binding.btnUnbind.setOnClickListener { unbindService() }
         binding.btnCall.setOnClickListener { callServiceFunction() }
+        binding.btnStartForeground.setOnClickListener {
+            val intent = Intent(this, MyForegroundService::class.java)
+            ContextCompat.startForegroundService(this, intent)
+        }
+        binding.btnStopForeground.setOnClickListener {
+            val intent = Intent(this, MyForegroundService::class.java)
+            stopService(intent)
+        }
     }
 
     private fun startService() {
