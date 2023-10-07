@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "AndroidPlayground"
 include(":serviceexample")
 include(":cameraexample")
+include(":overlayexample")
